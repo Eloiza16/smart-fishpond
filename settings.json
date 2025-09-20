@@ -1,0 +1,17 @@
+{
+    "feedKg": 5,
+    "feeds": [
+        {
+            "hour": 7,
+            "minute": 0
+        },
+        {
+            "hour": 12,
+            "minute": 0
+        },
+        {
+            "hour": 17,
+            "minute": 0
+        }
+    ]
+}
