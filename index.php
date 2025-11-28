@@ -56,8 +56,8 @@
         <h5 class="card-title">⚙️ Feeding Settings</h5>
         <form id="frm" class="row g-3">
           <div class="col-md-3">
-            <label class="form-label">Feed KG (max 20)</label>
-            <input type="number" id="feedKg" name="feedKg" class="form-control" min="0" max="20">
+            <label class="form-label">Feeding Time (max 20 mins)</label>
+            <input type="number" id="feeding_time" name="feeding_time" class="form-control" min="1" max="20">
           </div>
           <div class="col-md-3">
             <label class="form-label">Feed 1 (HH:MM)</label>
@@ -141,7 +141,7 @@
     async function loadSettings() {
       const r = await fetch('settings.php');
       const j = await r.json();
-      document.getElementById('feedKg').value = j.feedKg;
+      document.getElementById('feeding_time').value = j.feeding_time;
       document.getElementById('f1h').value = j.feeds[0].hour;
       document.getElementById('f1m').value = j.feeds[0].minute;
       document.getElementById('f2h').value = j.feeds[1].hour;
@@ -153,9 +153,9 @@
     document.getElementById('frm').addEventListener('submit', async function(e) {
       e.preventDefault();
       const form = new FormData(this);
-      const v = parseInt(form.get('feedKg'));
+      const v = parseInt(form.get('feeding_time'));
       if (isNaN(v) || v < 0 || v > 20) {
-        alert('feedKg must be 0-20');
+        alert('feeding_time must be 0-20');
         return;
       }
       const resp = await fetch('update_settings.php', {

@@ -4,7 +4,7 @@ $fn = __DIR__ . '/settings.json';
 if (!file_exists($fn)) {
     // create default
     $default = [
-        'feedKg' => 1,
+        'feeding_time' => 1,
         'feeds' => [
             ['hour'=>8,'minute'=>0],
             ['hour'=>12,'minute'=>0],
